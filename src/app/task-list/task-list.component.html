@@ -1,0 +1,13 @@
+<div class="task-page">
+  <h2>Your Tasks</h2>
+  <ul>
+    <li *ngFor="let task of tasks">
+      <strong>ID:</strong> {{ task.id }} |
+      <strong>Title:</strong> {{ task.title }} |
+      <strong>Done:</strong> {{ task.completed ? '✅' : '❌' }}
+      <button class="delete-btn" (click)="deleteTask(task.id)">🗑 Delete</button>
+    </li>
+  </ul>
+
+  <button routerLink="/add-task-list" class="back-btn">⬅ Back to Form</button>
+</div>

@@ -1,35 +1,46 @@
 <div class="container">
   <div class="todo-app">
-    <h1><i class="fa-regular fa-pen-to-square"></i>To-do List:</h1>
-    
-    <!-- Input Row -->
-    <div class="row">
+    <h1><i class="fa-regular fa-pen-to-square"></i> To-do List:</h1>
+
+    <!-- Input Section -->
+    <div class="form-section">
       <!-- Task ID -->
-      <input type="text" [(ngModel)]="newTaskId" placeholder="Enter ID">
-      
+      <div class="form-group">
+        <label for="taskId">Task ID</label>
+        <input id="taskId" type="text" [(ngModel)]="newTaskId" placeholder="Enter task ID">
+      </div>
+
       <!-- Task Title -->
-      <input type="text" [(ngModel)]="newTask" placeholder="Add a new task">
-      
+      <div class="form-group">
+        <label for="taskTitle">Task Title</label>
+        <input id="taskTitle" type="text" [(ngModel)]="newTask" placeholder="Enter task title">
+      </div>
+
       <!-- Done Checkbox -->
-      <label style="display: flex; align-items: center;">
-        <input type="checkbox" [(ngModel)]="newTaskDone" style="margin-right: 5px;">
-        Done
-      </label>
+      <div class="form-group checkbox-group">
+        <label>
+          <input type="checkbox" [(ngModel)]="newTaskDone"> Mark as Done
+        </label>
+      </div>
 
       <!-- Add Button -->
-      <button (click)="addTask()">Add</button>
+      <div class="form-group">
+        <button (click)="addTask()">Add Task</button>
+      </div>
     </div>
 
     <!-- Task List -->
-    <ul id="list-container">
-      <li *ngFor="let task of tasks; let i = index"
-          [class.checked]="task.completed"
-          (click)="toggleTask(i)">
-        <strong>ID:</strong> {{ task.id }} | 
-        <strong>Title:</strong> {{ task.title }} | 
-        <strong>Done:</strong> {{ task.completed ? 'Yes' : 'No' }}
-        <span (click)="deleteTask(i)">×</span>
+    <!-- <ul id="list-container">
+      <li *ngFor="let task of tasks; let i = index" [class.checked]="task.completed">
+        <div><strong>ID:</strong> {{ task.id }}</div>
+        <div><strong>Title:</strong> {{ task.title }}</div>
+        <div><strong>Done:</strong> {{ task.completed ? '' : '' }}</div>
+        <span class="delete-btn" (click)="deleteTask(i)"></span>
       </li>
-    </ul>
+    </ul> -->
+
+    <div class="form-group">
+      <button class="view-tasks-btn" routerlink="app-task-list"> View All Tasks</button>
+    </div>
   </div>
 </div>

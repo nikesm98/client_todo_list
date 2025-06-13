@@ -1,0 +1,36 @@
+.task-page {
+  padding: 30px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background: #f5f5f5;
+  margin-bottom: 10px;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.delete-btn {
+  margin-left: 15px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.back-btn {
+  margin-top: 20px;
+  background: #6c63ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
