@@ -1,0 +1,121 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-size: 1.6rem;
+	font-family: "Poppins", sans-serif;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100%;
+	background: linear-gradient(135deg, #845ec2, #b39cd0);
+}
+
+.todo-app {
+	width: 100%;
+	max-width: 54rem;
+	margin: 10rem auto 2rem;
+	padding: 4rem 3rem;
+	border-radius: 1rem;
+	background: linear-gradient(to right, #ece9e6, #ffffff);
+	box-shadow: rgba(0, 0, 0, 0.15) 0rem 0.2rem 0.8rem;
+}
+
+.todo-app h1 {
+	color: #4f1787;
+	display: flex;
+	align-items: center;
+	margin-bottom: 2rem;
+}
+
+.todo-app i {
+	margin-right: 1rem;
+}
+
+.row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-radius: 3rem;
+	padding-left: 2rem;
+	margin-bottom: 2.5rem;
+	background-color: #f5f5f7;
+}
+
+input {
+	flex: 1;
+	border: none;
+	outline: none;
+	background-color: transparent;
+	padding: 1rem;
+}
+
+button {
+	border: none;
+	outline: none;
+	padding: 1.6rem 5rem;
+	background-color: #7a1cac;
+	color: #f5f7f8;
+	font-weight: 800;
+	border-radius: 4rem;
+	cursor: pointer;
+}
+
+ul li {
+	list-style: none;
+	padding: 1rem 0.8rem 1rem 5rem;
+	user-select: none;
+	cursor: pointer;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: baseline;
+}
+
+ul li::before {
+	content: "";
+	position: absolute;
+	height: 2.8rem;
+	width: 2.8rem;
+	background-image: url(https://cdn.discordapp.com/attachments/1290843633171566695/1290849999625781269/WhatsApp_Image_2024-10-01_at_17.31.45-removebg-preview.png?ex=6718533e&is=671701be&hm=aa1d95f8791df79f8e92a61f956bd6b3f6a64278e5b5549b4802b8247b2f1850&);
+	background-size: cover;
+	background-position: center;
+	margin: 0rem -4rem;
+}
+
+ul li.checked {
+	color: #555;
+	text-decoration: line-through;
+}
+
+ul li.checked::before {
+	background-image: url(https://cdn.discordapp.com/attachments/1290843633171566695/1290849999395225622/WhatsApp_Image_2024-10-01_at_17.31.44-removebg-preview.png?ex=6718533e&is=671701be&hm=9a79274ecbed0ffa1d653360f8630a7361ac5daba8e0943e06cb69315cd23d5a&);
+}
+
+ul li span {
+	color: #555;
+	width: 4rem;
+	height: 4rem;
+	font-size: 2.2rem;
+	line-height: 4rem;
+	border-radius: 50%;
+	text-align: center;
+	position: absolute;
+	right: 0;
+	top: 5px;
+}
+
+ul li span:hover {
+	background: #edeef0;
+}
