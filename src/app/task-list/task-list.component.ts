@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { TodoService } from '../todo/todo.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   styleUrls: ['./task-list.component.css']
 })
 export class TaskListComponent implements OnInit {
@@ -25,9 +26,8 @@ export class TaskListComponent implements OnInit {
     });
   }
 
-  deleteTask(id: string) {
-    this.todoService.deleteTodo(id).subscribe(() => {
-      this.tasks = this.tasks.filter(task => task.id !== id);
-    });
+  deleteTask(taskId: string) {
+  console.log("Deleting task with ID:", taskId);
+  this.todoService.deleteTodo(taskId).subscribe();  
   }
 }

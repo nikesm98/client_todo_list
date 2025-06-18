@@ -3,10 +3,11 @@ import { TodoService } from './todo.service';
 import { Todo } from '../models/todo';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-todo',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css']
 })
@@ -29,7 +30,7 @@ export class TodoComponent implements OnInit {
   addTask(): void {
     if (this.newTask.trim() !== '' && this.newTaskId.trim() !== '') {
       const newTodo: Todo = {
-        id: 'this.newTaskId',
+        id: this.newTaskId,
         title: this.newTask,
         completed: this.newTaskDone,
         // description: '',
@@ -51,8 +52,19 @@ export class TodoComponent implements OnInit {
   }
 
   deleteTask(index: number): void {
-    // const id = this.tasks[index].id;
-    // this.todoService.deleteTodo(id).subscribe(() => this.tasks.splice(index, 1));
-    this.tasks.splice(index, 1);
+    const taskId = this.tasks[index].id;
+    console.log("Deleting task with ID:", taskId);
+
+    this.todoService.deleteTodo(taskId).subscribe({
+      next: () => {
+        this.tasks.splice(index, 1);
+        console.log("Task deleted from frontend list");
+      },
+      error: (err) => {
+        console.error("Failed to delete task:", err);
+      }
+    });
+
   }
+  
 }
