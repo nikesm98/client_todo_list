@@ -21,7 +21,7 @@ export class TodoService {
     return this.http.put<Todo>(`${this.baseUrl}/${todo.id}`, todo);
   }
 
-  deleteTodo(id: string): Observable<void> {
+  deleteTodo(id: string | number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }
 }
